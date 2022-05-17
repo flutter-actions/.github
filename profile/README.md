@@ -1,4 +1,4 @@
-# setup-flutter
+# flutter-actions/setup-flutter
 
 This [GitHub Action]() installs and sets up of a Flutter SDK for use in actions by:
 
