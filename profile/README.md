@@ -14,11 +14,13 @@ The action takes the following inputs:
     Available channels are `stable`, `beta`. See
     https://flutter.dev/docs/development/tools/sdk/releases for details.
 
-  * `version`: (Required) A specific SDK version, e.g. `3.0.2` or `3.1.0-9.0.pre`
+  * `version`: (Required) A specific SDK version, e.g. `latest` or `3.0.2` or `3.1.0-9.0.pre`
 
-  * `cache`: (Optional) Enable cache of the installed Flutter SDK. Default: false
+  * `cache`: (Optional) Enable cache of the pub dependencies. Default: false
 
-  * `cache-key`: (Optional) An explicit key for restoring and saving the Flutter SDK to/from cache
+  * `cache-sdk`: (Optional) Enable cache of the installed Flutter SDK. Default: false
+
+  * `cache-key`: (Optional) An explicit key for restoring and saving the pub dependencies to/from cache
 
 ## Basic example
 
@@ -38,10 +40,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Setup Flutter SDK
-        uses: flutter-actions/setup-flutter@v2
+        uses: flutter-actions/setup-flutter@v3
         with:
           channel: stable
           version: 3.0.2
@@ -72,18 +74,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
+        uses: actions/setup-java@v4
         with:
           java-version: 1.8
+          distribution: 'temurin'
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
+        uses: android-actions/setup-android@v3
 
       - name: Setup Flutter SDK
-        uses: flutter-actions/setup-flutter@v2
+        uses: flutter-actions/setup-flutter@v3
         with:
           channel: stable
           version: 3.0.2
