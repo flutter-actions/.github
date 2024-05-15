@@ -1,6 +1,10 @@
+[flutter-actions/setup-pubdev-credentials]: https://github.com/flutter-actions/setup-pubdev-credentials
+[GitHub Action]: https://github.com/flutter-actions/setup-flutter
+[`LICENSE`]: https://github.com/flutter-actions/setup-flutter/blob/main/LICENSE
+
 ## About
 
-This [GitHub Action]() installs and sets up of a Flutter SDK for use in actions by:
+This [GitHub Action] installs and sets up of a Flutter SDK for use in actions by:
 
 * Downloading the Flutter SDK
 * Adding the `flutter` command and `dart` command to path
@@ -58,48 +62,11 @@ jobs:
         run: flutter test
 ```
 
-Working with Android project:
+## Automated publishing of packages to pub.dev
 
-```yml
-name: Flutter for Android
+You can automate publishing from GitHub Actions by using the [flutter-actions/setup-pubdev-credentials] action.
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Set up JDK 21
-        uses: actions/setup-java@v4
-        with:
-          java-version: 21
-          distribution: 'temurin'
-
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
-
-      - name: Setup Flutter SDK
-        uses: flutter-actions/setup-flutter@v3
-        with:
-          channel: stable
-          version: 3.0.2
-
-      - name: Install dependencies
-        run: flutter pub get
-
-      - name: Analyze project source
-        run: dart analyze
-
-      - name: Run tests
-        run: flutter test
-```
+See [flutter-actions/setup-pubdev-credentials] for more information.
 
 ## Troubleshooting
 
@@ -108,6 +75,10 @@ jobs:
 If you are running this on `self-hosted` runner specially with Apple Silicon Mac only Flutter SDK v3.0.0 or later are supported.
 
 For more information plase check https://docs.flutter.dev/get-started/install/macos.
+
+### Flutter uses Google Analytics
+
+Starting from `flutter-actions/setup-flutter@v3`, the action will disable **Flutter SDK** built-in **Google Analytics** by default.
 
 ## Using outside of GitHub Actions environment
 
@@ -125,4 +96,4 @@ curl -fsSL https://raw.githubusercontent.com/flutter-actions/setup-flutter/${SET
 
 # License
 
-See the [`LICENSE`](LICENSE) file.
+See the [`LICENSE`] file.
