@@ -79,7 +79,7 @@ You can automated test across multiple version of **Flutter SDK** by using [flut
 ## Alternatives
 
 The [GitHub Actions for Flutter SDK] team also implemented an alternative action to Setup Flutter SDK using `fvm`.  
-See https://github.com/flutter-actions/setup-fvm for more information.
+See [flutter-actions/setup-fvm] for more information.
 
 **See also:**
 - [subosito/flutter-action](https://github.com/subosito/flutter-action)
@@ -118,5 +118,6 @@ Licensed under the [MIT License].
 [GitHub Actions for Flutter SDK]: https://github.com/flutter-actions
 [GitHub Action]: https://github.com/flutter-actions/setup-flutter
 [Pub.dev]: https://pub.dev
+[flutter-actions/setup-fvm]: https://github.com/flutter-actions/setup-fvm
 [flutter-actions/setup-pubdev-credentials]: https://github.com/flutter-actions/setup-pubdev-credentials
 [flutter-actions/pubspec-matrix-action]: https://github.com/flutter-actions/pubspec-matrix-action
