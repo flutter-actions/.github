@@ -1,8 +1,3 @@
-[flutter-actions/setup-pubdev-credentials]: https://github.com/flutter-actions/setup-pubdev-credentials
-[Pub.dev]: https://pub.dev
-[GitHub Action]: https://github.com/flutter-actions/setup-flutter
-[MIT License]: https://github.com/flutter-actions/setup-flutter/blob/main/LICENSE
-
 ## About
 
 This [GitHub Action] installs and sets up of a Flutter SDK for use in actions by:
@@ -17,11 +12,11 @@ This [GitHub Action] installs and sets up of a Flutter SDK for use in actions by
 ## Inputs
 
 The action takes the following inputs:
-  * `channel`: (Required) A release channel, which will install the latest build from that channel.
+  * `version`: (Required) A specific Flutter SDK version to install, e.g. `latest` or `3.0.2` or `3.1.0-9.0.pre`
+
+  * `channel`: (Required) The Flutter SDK release channel to install.
     Available channels are `stable`, `beta`. See
     https://flutter.dev/docs/development/tools/sdk/releases for details.
-
-  * `version`: (Required) A specific SDK version, e.g. `latest` or `3.0.2` or `3.1.0-9.0.pre`
 
   * `cache`: (Optional) Enable cache of the pub dependencies. Default: false
 
@@ -72,6 +67,23 @@ You can automated publishing of packages to [Pub.dev] from GitHub Actions by usi
 - uses: flutter-actions/setup-pubdev-credentials@v1
 ```
 
+## Automated test across multiple version of Flutter SDK
+
+You can automated test across multiple version of **Flutter SDK** by using [flutter-actions/pubspec-matrix-action] action. This GitHub Action generates a matrix of **Dart** and **Flutter SDK** versions from a `pubspec.yaml` file.
+
+<picture>
+    <source srcset="https://github.com/flutter-actions/pubspec-matrix-action/blob/main/.github/assets/screenshot-dark.png"  media="(prefers-color-scheme: dark)">
+    <img src="https://github.com/flutter-actions/pubspec-matrix-action/blob/main/.github/assets/screenshot-light.png">
+</picture>
+
+## Alternatives
+
+The [GitHub Actions for Flutter SDK] team also implemented an alternative action to Setup Flutter SDK using `fvm`.  
+See https://github.com/flutter-actions/setup-fvm for more information.
+
+**See also:**
+- [subosito/flutter-action](https://github.com/subosito/flutter-action)
+
 ## Troubleshooting
 
 ### Apple Silicon
@@ -102,3 +114,9 @@ curl -fsSL https://raw.githubusercontent.com/flutter-actions/setup-flutter/${SET
 
 Licensed under the [MIT License].
 
+[MIT License]: https://github.com/flutter-actions/setup-flutter/blob/main/LICENSE
+[GitHub Actions for Flutter SDK]: https://github.com/flutter-actions
+[GitHub Action]: https://github.com/flutter-actions/setup-flutter
+[Pub.dev]: https://pub.dev
+[flutter-actions/setup-pubdev-credentials]: https://github.com/flutter-actions/setup-pubdev-credentials
+[flutter-actions/pubspec-matrix-action]: https://github.com/flutter-actions/pubspec-matrix-action
